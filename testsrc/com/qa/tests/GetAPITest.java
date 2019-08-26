@@ -52,10 +52,17 @@ TestBase testBase;
         String Response= EntityUtils.toString(closeableHttpResponse.getEntity(),"UTF-8");
         JSONObject ResponsejsonObject=new JSONObject(Response);
         System.out.println(ResponsejsonObject);
-
+//Single values
         String Perpagevalue=Testutils.getValueByJPath(ResponsejsonObject,"/per_page");
         System.out.println(Perpagevalue);
         Assert.assertEquals(Integer.parseInt(Perpagevalue),6);
+
+    //Got the array of data
+
+        String first_name=Testutils.getValueByJPath(ResponsejsonObject,"/data[0]/first_name");
+
+        System.out.println(first_name);
+        Assert.assertEquals(first_name,"George");
         //c.all headers
         Header[] headersArray=closeableHttpResponse.getAllHeaders();
         HashMap<String,String> Allheader=new HashMap<String, String>();
@@ -63,6 +70,10 @@ TestBase testBase;
         for(Header header:headersArray)
         {
             Allheader.put(header.getName(),header.getValue());
+            String hedertext=header.getName();
+
+            Assert.assertEquals(hedertext,"Date","Heder text is not available ");
+
         }
         System.out.println("Header Array-->"+Allheader);
 
