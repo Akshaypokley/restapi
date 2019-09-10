@@ -8,7 +8,7 @@ import java.util.Properties;
 public class TestBase {
     public Properties pro;
     public int RESPONSE_STATUS_CODE_200=200;
-    public int RESPONSE_STATUS_CODE_300=300;
+    public int RESPONSE_STATUS_CODE_201=201;
     public int RESPONSE_STATUS_CODE_400=400;
     public int RESPONSE_STATUS_CODE_500=500;
     public int RESPONSE_STATUS_CODE_404=404;
